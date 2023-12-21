@@ -115,6 +115,46 @@ function Soal3() {
   console.log(
     "\n\n======================== SOAL 3 TARIF PARKIR ========================"
   );
+  var masuk = input.question("Masuk : ");
+  var keluar = input.question("Keluar: ");
+  var tanggalMasuk = Number(masuk.substring(0, 2));
+  var tanggalKeluar = Number(keluar.substring(0, 2));
+  var waktuMasuk = masuk.substring(masuk.length - 8);
+  var waktuKeluar = keluar.substring(keluar.length - 8);
+  var jamMasuk = Number(waktuMasuk.substring(0, 2));
+  var jamKeluar = Number(waktuKeluar.substring(0, 2));
+  var hari = 0;
+  var jam = 0;
+
+  hari = tanggalKeluar - tanggalMasuk;
+
+  // if(jamKeluar < jamMasuk) {
+  //     jamKeluar = jamKeluar + 24
+  // }
+
+  jam = jamKeluar - jamMasuk;
+
+  if (hari > 0) {
+    jam = jam + 24;
+  }
+
+  if (jam <= 8) {
+    tarif = jam * 1000;
+  } else if (jam > 8 && jam <= 24) {
+    tarif = 8000;
+  } else if (jam > 24) {
+    tarif = 15000 + (jam - 24) * 1000;
+  }
+
+  // console.log(masuk)
+  // console.log(keluar);
+  // console.log(waktuMasuk);
+  // console.log(waktuKeluar);
+  // console.log(hari);
+  // console.log(jamMasuk);
+  // console.log(jamKeluar);
+  // console.log(jam);
+  console.log(tarif);
 }
 
 function Soal4() {
@@ -547,18 +587,16 @@ function Soal19() {
 function Soal20() {
   // var A = ["G", "G", "G"];
   // var B = ["B", "B", "B"];
-  var jarakAwal = input.questionInt("Masukkan jarak awal: ")
+  var jarakAwal = input.questionInt("Masukkan jarak awal: ");
   var AJalan = 0;
   var BJalan = jarakAwal;
 
-  var lanjutMain = "y"
-  while (lanjutMain==="y"){
+  var lanjutMain = "y";
+  while (lanjutMain === "y") {
+    console.log("INPUT HURUF G (GUNTING), K (KERTAS), B (BATU)");
+    var A = input.question("Suit A: ");
+    var B = input.question("Suit B: ");
 
-    console.log("INPUT HURUF G (GUNTING), K (KERTAS), B (BATU)")
-    var A = input.question("Suit A: ")
-    var B = input.question("Suit B: ")
-  
-  
     for (var i = 0; i < A.length; i++) {
       if (A[i] === "G" && B[i] === "K") {
         AJalan += 2;
@@ -580,18 +618,18 @@ function Soal20() {
         BJalan -= 2;
       }
     }
-    console.log("Jalan A saat ini: ", AJalan)
-    console.log("Jalan B saat ini: ", BJalan)
-    if (AJalan === BJalan){
-      if (AJalan < 0 && BJalan <0){
-        console.log("B Menang")
+    console.log("Jalan A saat ini: ", AJalan);
+    console.log("Jalan B saat ini: ", BJalan);
+    if (AJalan === BJalan) {
+      if (AJalan < 0 && BJalan < 0) {
+        console.log("B Menang");
         break;
       } else {
-        console.log("A Menang")
+        console.log("A Menang");
         break;
       }
     }
-    lanjutMain = input.question("Lanjut main? (y / n)")
+    lanjutMain = input.question("Lanjut main? (y / n)");
   }
 }
 // Soal1();
@@ -613,4 +651,4 @@ function Soal20() {
 // Soal17()
 // Soal18()
 // Soal19();
-Soal20()
+Soal20();
