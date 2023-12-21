@@ -1,0 +1,15 @@
+{
+  "name": "assessment-pra-placement",
+  "version": "1.0.0",
+  "description": "BLQ",
+  "main": "index.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
