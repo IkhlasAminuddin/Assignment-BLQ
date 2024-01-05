@@ -4,22 +4,32 @@ import HeaderNav from "./pages/Header/HeaderNav";
 import MenuPage from "./pages/Homepage/MenuPage";
 import Awalan from "./pages/Awalan/Awalan";
 import ProductPage from "./pages/Product/ProductPage";
+import LoginPage from "./pages/Login/LoginModal";
 
 export default class App extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       customer: "",
+      akses: ""
     };
+  }
+  componentDidMount(){
+    this.setState({
+      akses: localStorage.getItem('akses')
+    })
   }
 
 
   render() {
+    const {akses} = this.state
+    console.log("cek akses",akses)
     return (
       <>
         <BrowserRouter>
           <div className="wrapper">
-          <HeaderNav />
+            {akses !== ""? (<><HeaderNav /></>): (<></>)}
+          
             <div className="content-wrapper">
               <div className="content-header">
                 <div className="container-fluid">

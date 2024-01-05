@@ -27,6 +27,7 @@ export default class ProductPage extends React.Component {
   }
   componentDidMount() {
     this.getAllProduct();
+    localStorage.setItem('akses', 'admin')
   }
   closeModal = () => {
     this.setState({

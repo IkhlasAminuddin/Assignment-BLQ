@@ -22,6 +22,7 @@ export default class MenuPage extends React.Component {
   componentDidMount() {
     localStorage.setItem("Meja", 0);
     this.getAllMenu();
+    localStorage.setItem("akses", 'pelanggan')
   }
 
   pilihMeja = (nomor) => {
@@ -229,9 +230,11 @@ export default class MenuPage extends React.Component {
       menu = (
         <Container>
           <div>
-            <h3 style={{ textAlign: "center" }}>Menu</h3>
+            
             <Row style={{ marginBottom: "40px" }}>
+              <h3 style={{ textAlign: "center", backgroundColor: 'peachpuff' }}>Makanan Berat</h3>
               {listMenu.map((data, index) => (
+                data.jenis === "Makanan Berat" ? (<>
                 <Card
                   style={{
                     width: "18rem",
@@ -298,6 +301,153 @@ export default class MenuPage extends React.Component {
                     )}
                   </Card.Body>
                 </Card>
+                </>) : (<></>)
+              ))}
+            </Row>
+            <Row style={{ marginBottom: "40px" }}>
+              <h3 style={{ textAlign: "center", backgroundColor: 'peachpuff' }}>Minuman</h3>
+              {listMenu.map((data, index) => (
+                data.jenis === "Minuman" ? (<>
+                <Card
+                  style={{
+                    width: "18rem",
+                    marginRight: "42px",
+                    marginBottom: "40px",
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    key={index}
+                    src={data.foto}
+                    width={262}
+                    height={175}
+                  />
+                  <Card.Body style={{ textAlign: "center" }}>
+                    <Card.Title>{data.nama}</Card.Title>
+                    <Card.Text>
+                      <h4>(Rp. {data.harga})</h4>
+                    </Card.Text>
+                    <Card.Text style={{ height: "80px" }}>
+                      {data.deskripsi}
+                    </Card.Text>
+                    {data.quantity ? (
+                      <>
+                        <Row>
+                          <Col>
+                            <Button
+                              disabled
+                              variant="dark"
+                              style={{ marginRight: "15px" }}
+                              onClick={() => this.handleKurangQuantity(index)}
+                            >
+                              <Icon.DashSquareFill />
+                            </Button>
+                          </Col>
+                          <Col sm={1}>
+                            <Card.Text style={{ marginTop: "6px" }}>
+                              {data.quantity}
+                            </Card.Text>
+                          </Col>
+                          <Col>
+                            <Button
+                              disabled
+                              variant="dark"
+                              onClick={() => this.handleTambahQuantity(index)}
+                            >
+                              <Icon.PlusSquareFill />
+                            </Button>
+                          </Col>
+                        </Row>
+                      </>
+                    ) : (
+                      <Col style={{ justifyContent: "center" }}>
+                        <Button
+                          disabled
+                          style={{ width: "100px" }}
+                          onClick={() =>
+                            this.handleTambahKeranjang(data, index)
+                          }
+                        >
+                          Pilih
+                        </Button>
+                      </Col>
+                    )}
+                  </Card.Body>
+                </Card>
+                </>) : (<></>)
+              ))}
+            </Row>
+            <Row style={{ marginBottom: "40px" }}>
+              <h3 style={{ textAlign: "center", backgroundColor: 'peachpuff' }}>Tambahan</h3>
+              {listMenu.map((data, index) => (
+                data.jenis === "Tambahan" ? (<>
+                <Card
+                  style={{
+                    width: "18rem",
+                    marginRight: "42px",
+                    marginBottom: "40px",
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    key={index}
+                    src={data.foto}
+                    width={262}
+                    height={175}
+                  />
+                  <Card.Body style={{ textAlign: "center" }}>
+                    <Card.Title>{data.nama}</Card.Title>
+                    <Card.Text>
+                      <h4>(Rp. {data.harga})</h4>
+                    </Card.Text>
+                    <Card.Text style={{ height: "80px" }}>
+                      {data.deskripsi}
+                    </Card.Text>
+                    {data.quantity ? (
+                      <>
+                        <Row>
+                          <Col>
+                            <Button
+                              disabled
+                              variant="dark"
+                              style={{ marginRight: "15px" }}
+                              onClick={() => this.handleKurangQuantity(index)}
+                            >
+                              <Icon.DashSquareFill />
+                            </Button>
+                          </Col>
+                          <Col sm={1}>
+                            <Card.Text style={{ marginTop: "6px" }}>
+                              {data.quantity}
+                            </Card.Text>
+                          </Col>
+                          <Col>
+                            <Button
+                              disabled
+                              variant="dark"
+                              onClick={() => this.handleTambahQuantity(index)}
+                            >
+                              <Icon.PlusSquareFill />
+                            </Button>
+                          </Col>
+                        </Row>
+                      </>
+                    ) : (
+                      <Col style={{ justifyContent: "center" }}>
+                        <Button
+                          disabled
+                          style={{ width: "100px" }}
+                          onClick={() =>
+                            this.handleTambahKeranjang(data, index)
+                          }
+                        >
+                          Pilih
+                        </Button>
+                      </Col>
+                    )}
+                  </Card.Body>
+                </Card>
+                </>) : (<></>)
               ))}
             </Row>
           </div>
@@ -307,7 +457,7 @@ export default class MenuPage extends React.Component {
       menu = (
         <Container>
           <div>
-            <h3 style={{ textAlign: "center" }}>others</h3>
+            <h3 style={{ textAlign: "center" }}>Others</h3>
             <Row>
               {listMenu.map((data, index) => (
                 <Card
@@ -382,6 +532,9 @@ export default class MenuPage extends React.Component {
     return (
       <>
         {nomorMeja}
+        <Container>
+        {pilihan === 0? (<h3>Meja: </h3>) : (<h3>Meja: {pilihan}</h3>)}
+        </Container>
         {menu}
         {footer}
         <PaymentModal
