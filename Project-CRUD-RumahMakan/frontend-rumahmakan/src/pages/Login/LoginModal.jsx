@@ -9,15 +9,18 @@ export const LoginModal = (props) => {
 
   return (
     <>
-      <Modal show={show} onHide={close}>
-        <Modal.Header closeButton>
+      <Modal show={show} onHide={close} style={{ marginTop: "8%" }}>
+        <Modal.Header closeButton style={{ backgroundColor: "#cce5e5" }}>
           <Modal.Title>
-            <Row style={{ backgroundColor: "gray" }}>
-              <img src={LogoRestoran} height={80} width={100}></img>
-            </Row>
+            <img
+              src={LogoRestoran}
+              height={80}
+              width={250}
+              style={{ backgroundColor: "black" }}
+            ></img>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{ backgroundColor: "gray", color: "whitesmoke" }}>
           <Row style={{ marginBottom: "20px" }}>
             <Col sm={3}>
               <Form.Label>Username: </Form.Label>
@@ -26,7 +29,7 @@ export const LoginModal = (props) => {
               <Form.Control placeholder="Username" />
             </Col>
           </Row>
-          <Row style={{marginBottom:'20px'}}>
+          <Row style={{ marginBottom: "20px" }}>
             <Col sm={3}>
               <Form.Label>Password: </Form.Label>
             </Col>
@@ -34,18 +37,19 @@ export const LoginModal = (props) => {
               <Form.Control placeholder="Password" />
             </Col>
           </Row>
-        <p>Belum punya akun?  {"      "} 
-          <Link onClick={openRegisModal}>Buat akun</Link>
-        </p>
+          <p>
+            Belum punya akun? {"      "}
+            <Link onClick={openRegisModal} style={{ color: "#0402a8" }}>
+              Buat akun
+            </Link>
+          </p>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{ backgroundColor: "#cce5e5" }}>
           <Button variant="secondary" onClick={close}>
             Close
           </Button>
           <a href="/Admin">
-          <Button variant="success">
-            Login{" "}
-          </Button>
+            <Button variant="success">Login </Button>
           </a>
         </Modal.Footer>
       </Modal>

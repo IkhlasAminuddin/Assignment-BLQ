@@ -76,7 +76,7 @@ export default class Awalan extends React.Component {
             
           }}
         >
-          <Card style={{ width: "30rem", height:'30rem', backgroundColor: "brown",position:'relative', 
+          <Card style={{ width: "30rem", height:'23rem', backgroundColor: "brown",position:'relative', 
              }}>
             <Card.Img
               variant="top"
@@ -86,7 +86,7 @@ export default class Awalan extends React.Component {
             />
             <Card.Body style={{ textAlign: "center", color: "white", justifyContent: 'center', alignItems: 'center', marginTop: "10%"  }}>
               <Row>
-              <Card.Title>Akses Masuk</Card.Title>
+              <Card.Title>Masuk sebagai?</Card.Title>
               </Row>
               <Row style={{marginTop: "10%"}}>
                 <Col>

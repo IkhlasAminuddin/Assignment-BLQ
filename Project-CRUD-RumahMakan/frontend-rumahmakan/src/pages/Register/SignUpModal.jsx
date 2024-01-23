@@ -8,15 +8,15 @@ export const SignUpModal = (props) => {
 
   return (
     <>
-      <Modal show={show} onHide={close}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <Row style={{ backgroundColor: "gray" }}>
+      <Modal show={show} onHide={close} style={{marginTop:'8%'}}>
+        <Modal.Header closeButton style={{backgroundColor:'#cce5e5'  , borderStyle:'solid',borderWidth:'5px', borderColor:'white white black white'}}>
+          <Modal.Title >
+            <Row style={{ backgroundColor: "gray"}}>
               <img src={LogoRestoran} height={80} width={100}></img>
             </Row>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{backgroundColor:'gray', color:'whitesmoke'}}>
             <Row>
                 <Form.Label>Masukkan email anda:</Form.Label>
             </Row>
@@ -30,7 +30,7 @@ export const SignUpModal = (props) => {
           </Row>
               <Form.Control placeholder="Password" />
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{backgroundColor:'#cce5e5'}}>
           <Button variant="secondary" onClick={close}>
             Close
           </Button>

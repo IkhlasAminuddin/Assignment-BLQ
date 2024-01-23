@@ -12,18 +12,25 @@ export default class HeaderNav extends React.Component {
   }
 
 
+
   render() {
     const {status} = this.state
     return (
       <>
-        <Container style={{ backgroundColor: "gray" }}>
-          <Row style={{ textAlign: "center" }}>
-              <h1>Selamat Datang!</h1>
-              <Col>
-              <img src={LogoRestoran} ></img>
+          <Row style={{ textAlign: "center" , backgroundColor:"grey", borderBottom:'10px solid black'}}>
+              <Col sm={2}>
+              <img src={LogoRestoran} width={200} height={130} ></img>
+              </Col>
+              <Col sm={5} style={{textAlign:'right', paddingTop:'4%'}}>
+              <a href="/About" style={{fontSize:'30px', background:'none', borderBottom:'4px solid black', color: 'black', textDecoration:'none'}}>Tentang</a>
+              </Col>
+              <Col sm={1} style={{textAlign:'center', paddingTop:'4%'}}>
+              <a href="/Menu" style={{fontSize:'30px', background:'none', borderBottom:'4px solid black', color: 'black', textDecoration:'none'}}>Menu</a>
+              </Col>
+              <Col style={{textAlign:'left', paddingTop:'4%'}}>
+              <a href="/Location" style={{fontSize:'30px', background:'none', borderBottom:'4px solid black', color: 'black', textDecoration:'none'}}>Lokasi</a>
               </Col>
           </Row>
-        </Container>
       </>
     );
   }

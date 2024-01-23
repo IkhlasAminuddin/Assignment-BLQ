@@ -5,6 +5,7 @@ import MenuPage from "./pages/Homepage/MenuPage";
 import Awalan from "./pages/Awalan/Awalan";
 import ProductPage from "./pages/Product/ProductPage";
 import LoginPage from "./pages/Login/LoginModal";
+import NotFound from "./pages/NotFoundURL";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export default class App extends React.Component {
       <>
         <BrowserRouter>
           <div className="wrapper">
-            {akses !== ""? (<><HeaderNav /></>): (<></>)}
+            {akses !== "" ? (<><HeaderNav /></>) : (<></>)}
           
             <div className="content-wrapper">
               <div className="content-header">
@@ -37,6 +38,7 @@ export default class App extends React.Component {
                     <Route exact path="/" element={<Awalan/>}></Route>
                     <Route path="/Admin" element={<ProductPage/>}></Route>
                     <Route path="/Menu" element={<MenuPage />}></Route>
+                    <Route path="*" element={<NotFound/>}></Route>
                   </Routes>
                 </div>
               </div>

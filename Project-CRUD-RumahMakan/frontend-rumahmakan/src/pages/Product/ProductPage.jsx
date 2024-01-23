@@ -155,7 +155,7 @@ export default class ProductPage extends React.Component {
 
     return (
       <>
-        <Container style={{ backgroundColor: "powderblue" }}>
+        {/* <Container style={{ backgroundColor: "powderblue" }}> */}
           <div>
             <h1>Product Page</h1>
             <Button onClick={this.openModalAddPrduct}>Tambah Menu</Button>
@@ -213,7 +213,7 @@ export default class ProductPage extends React.Component {
               </tbody>
             </table>
           </div>
-        </Container>
+        {/* </Container> */}
         <FormInputProduct
           show={show}
           close={this.closeModal}
